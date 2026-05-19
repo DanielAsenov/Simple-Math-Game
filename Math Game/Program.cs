@@ -5,6 +5,7 @@ Menu(name);
 
 string GetName()
 {
+    Console.ForegroundColor = ConsoleColor.Cyan;
     Console.WriteLine("Please enter your name:");
     var name = Console.ReadLine();
     return name;
@@ -14,13 +15,34 @@ void Menu(string name)
 {
     Console.Clear();
 
-    Console.WriteLine($"Hello {name}. It's {date}. This is your math's game.");
-    Console.WriteLine(@$"What game would you like to play today? Choose from the options below:
-A - Addition
+    Console.ForegroundColor = ConsoleColor.Green;
+
+    Console.WriteLine("==================================");
+    Console.WriteLine($"        Welcome {name}");
+    Console.WriteLine($"        {DateTime.Now}");
+    Console.WriteLine("==================================");
+
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("==================================");
+    Console.WriteLine("        MATH GAME MENU");
+    Console.WriteLine("==================================");
+    Console.ResetColor();
+
+    Console.WriteLine();
+
+    Console.ForegroundColor = ConsoleColor.White;
+    Console.WriteLine($@"A - Addition
 S - Subtraction
 M - Multiplication
 D - Division
-Q - Quit the program");
+Q - Quit");
+    Console.WriteLine();
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("Choose an option: ");
+    Console.ResetColor();
+
 
 
 
@@ -54,6 +76,8 @@ Q - Quit the program");
 
 void AdditionGame(string message)
 {
+    Console.ResetColor();
+    Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine(message);
 
     var random = new Random();
@@ -67,12 +91,15 @@ void AdditionGame(string message)
     for (int i = 0; i < 10; i++)
     {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(message);
 
 
         firstNumber = random.Next(1, 15);
         secondNumber = random.Next(1, 15);
 
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"{firstNumber} + {secondNumber}");
 
         var answer = Console.ReadLine();
@@ -83,17 +110,23 @@ void AdditionGame(string message)
             if (userAnswer == firstNumber + secondNumber)
             {
                 score++;
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Correct answer.");
             }
             else
             {
                 tries--;
 
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Incorrect answer. {tries} tries left.");
 
                 if (tries == 0)
                 {
                     Console.Clear();
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Game Over. {name}, your final score is {score}");
                     Console.WriteLine("Press Any Key to exit...");
                     Console.ReadLine();
@@ -103,6 +136,8 @@ void AdditionGame(string message)
         }
         else
         {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please enter a valid number.");
         }
 
@@ -112,6 +147,8 @@ void AdditionGame(string message)
         if (i == 9)
         {
             Console.Clear();
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Game Over. {name}, your final score is: {score}.");
             Console.WriteLine("Press Any Key to exit...");
             Console.ReadLine();
@@ -122,6 +159,8 @@ void AdditionGame(string message)
 
 void SubtractionGame(string message)
 {
+    Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine(message);
 
     var random = new Random();
@@ -135,12 +174,16 @@ void SubtractionGame(string message)
     for (int i = 0; i < 10; i++)
     {
         Console.Clear();
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(message);
 
 
         firstNumber = random.Next(1, 15);
         secondNumber = random.Next(1, 15);
 
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"{firstNumber} - {secondNumber}");
 
         var answer = Console.ReadLine();
@@ -150,17 +193,22 @@ void SubtractionGame(string message)
             if (userAnswer == firstNumber - secondNumber)
             {
                 score++;
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Correct answer.");
             }
             else
             {
                 tries--;
-
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Incorrect answer. {tries} tries left.");
 
                 if (tries == 0)
                 {
                     Console.Clear();
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Game Over. {name}, your final score is {score}");
                     Console.WriteLine("Press Any Key to exit...");
                     Console.ReadLine();
@@ -170,6 +218,8 @@ void SubtractionGame(string message)
         }
         else
         {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please enter a valid number.");
         }
 
@@ -179,6 +229,8 @@ void SubtractionGame(string message)
         if (i == 9)
         {
             Console.Clear();
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Game Over. {name}, your final score is: {score}.");
             Console.WriteLine("Press Any Key to exit...");
             Console.ReadLine();
@@ -189,6 +241,8 @@ void SubtractionGame(string message)
 
 void MultiplicationGame(string message)
 {
+    Console.ResetColor();
+    Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine(message);
 
     var random = new Random();
@@ -202,12 +256,16 @@ void MultiplicationGame(string message)
     for (int i = 0; i < 10; i++)
     {
         Console.Clear();
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine(message);
 
 
         firstNumber = random.Next(1, 9);
         secondNumber = random.Next(1, 9);
 
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"{firstNumber} * {secondNumber}");
 
         var answer = Console.ReadLine();
@@ -217,17 +275,22 @@ void MultiplicationGame(string message)
             if (userAnswer == firstNumber * secondNumber)
             {
                 score++;
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Correct answer.");
             }
             else
             {
                 tries--;
-
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Incorrect answer. {tries} tries left.");
 
                 if (tries == 0)
                 {
                     Console.Clear();
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Game Over. {name}, your final score is {score}");
                     Console.WriteLine("Press Any Key to exit...");
                     Console.ReadLine();
@@ -237,6 +300,8 @@ void MultiplicationGame(string message)
         }
         else
         {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please enter a valid number.");
         }
 
@@ -246,6 +311,8 @@ void MultiplicationGame(string message)
         if (i == 9)
         {
             Console.Clear();
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Game Over. {name}, your final score is: {score}.");
             Console.WriteLine("Press Any Key to exit...");
             Console.ReadLine();
@@ -261,12 +328,16 @@ void DivisionGame(string message)
     for (int i = 0; i < 10; i++)
     {
         Console.Clear();
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(message);
 
         var divisionNumbers = GetDivisionNumbers();
         var firstNumber = divisionNumbers[0];
         var secondNumber = divisionNumbers[1];
 
+        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"{firstNumber} / {secondNumber}");
         var answer = Console.ReadLine();
 
@@ -275,17 +346,22 @@ void DivisionGame(string message)
             if (userAnswer == firstNumber / secondNumber)
             {
                 score++;
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Correct answer.");
             }
             else
             {
                 tries--;
-
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Incorrect answer. {tries} tries left.");
 
                 if (tries == 0)
                 {
                     Console.Clear();
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Game Over. {name}, your final score is {score}");
                     Console.WriteLine("Press Any Key to exit...");
                     Console.ReadLine();
@@ -295,6 +371,8 @@ void DivisionGame(string message)
         }
         else
         {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please enter a valid number.");
         }
 
@@ -304,6 +382,8 @@ void DivisionGame(string message)
         if (i == 9)
         {
             Console.Clear();
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Game Over. {name}, your final score is: {score}.");
             Console.WriteLine("Press Any Key to exit...");
             Console.ReadLine();
